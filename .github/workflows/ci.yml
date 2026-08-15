@@ -48,13 +48,13 @@ jobs:
       - name: Fail job on e2e failures
         if: steps.e2e.outcome == 'failure'
         run: exit 1
-      - uses: actions/upload-artifact@v5
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: playwright-report
           path: apps/demo-e2e/playwright-report
           retention-days: 14
-      - uses: actions/upload-artifact@v5
+      - uses: actions/upload-artifact@v7
         if: success()
         with:
           name: demo-dist
