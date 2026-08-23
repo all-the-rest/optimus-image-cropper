@@ -19,6 +19,10 @@ Portierung des Image Croppers aus `/Users/florianreisinger/dev/angular-material-
 - **Button-/Aria-Strings:** aus **`@openng/optimus-ui-locale`** (npm-Paket) beziehen, nicht hartcodieren
 - **Stand aktualisiert:** 2026-08-05 (Angular 21 → 22, optimus-ui 1.x → 2.0.0-rc.0; Phasen-Checkboxen dokumentieren die Historie und bleiben unverändert)
 
+## Blockierte Dependency-Updates
+
+- [ ] **typescript 6 → 7:** blockiert durch Angular 22 / Nx 23 (Stand 2026-08-23). Weder Angular 22 noch Nx 23 unterstützen TypeScript 7 als Peer — Upgrade erst nach Angular 23 (und passendem Nx-Upgrade). Eintrag angelegt durch Dependency-Update-Subagent am 2026-08-23.
+
 ---
 
 ## Phase 1 — Scaffold Workspace ✅ Grundlage, blockiert alles andere (Review: PASS 2026-07-27)
@@ -147,7 +151,7 @@ Quelle: `packages/mat-extended/cropper/src/`
   - test-and-build: System-Deps für node-canvas → `pnpm install --frozen-lockfile` → build + test + lint lib → build demo → Playwright → Upload `dist`-Artefakt
   - publish (needs test-and-build): `setup-node` mit npm registry → Download dist → `cd dist/packages/optimus-image-cropper && npm publish --provenance --access public` (mit `NODE_AUTH_TOKEN` aus `secrets.NPM_TOKEN`)
 - [x] Nx release: `currentVersionResolver: "git-tag"` in `nx.json` gesetzt
-- [x] **Versions-Parität lokal ↔ CI:** Node-Major (lokal 26 → CI 26), pnpm via `packageManager`-Feld (`pnpm@11.10.0`), engines.node auf `>=26` gesetzt; CI nutzt `pnpm/action-setup@v4` ohne Version-Input (liest automatisch aus `packageManager`)
+- [x] **Versions-Parität lokal ↔ CI:** Node-Major (lokal 26 → CI 26), pnpm via `packageManager`-Feld (`pnpm@11.23.0`), engines.node auf `>=26` gesetzt; CI nutzt `pnpm/action-setup@v4` ohne Version-Input (liest automatisch aus `packageManager`)
 - [x] Dateien erstellt, YAML-Syntax geprüft, initialer Commit `ci: add CI and release workflows`
 - [ ] **HINWEIS:** Tatsächliche CI/CD-Ausführung kann erst nach `git push` und GitHub-Setup verifiziert werden (Repo anlegen, Remote setzen, Secrets hinterlegen)
 
