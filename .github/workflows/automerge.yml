@@ -5,9 +5,12 @@ name: Dependabot Auto-Merge
 # pull_request_target wird nur mit striktem Actor-Gate auf dependabot[bot]
 # verwendet; es wird KEIN untrusted PR-Code ausgecheckt oder ausgeführt
 # (nur Metadaten lesen + API-merge), daher im public Repo vertretbar.
+# KEIN `labeled`-Trigger: Dependabot hängt Labels im selben Moment an wie
+# `opened` -> zwei simultane Runs -> Concurrency-Cancel-Race (beobachtet:
+# Step "Determine whether to merge" lief im Survivor-Run leer).
 on:
   pull_request_target:
-    types: [opened, reopened, synchronize, labeled]
+    types: [opened, reopened, synchronize]
     branches: [main]
 
 permissions:
