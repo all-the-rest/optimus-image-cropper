@@ -3,6 +3,8 @@ name: Dependabot Auto-Merge
 # Kanonische Vorlage: portal.reisinger.pictures/.github/workflows/automerge.yml
 # (Commit b607aef) - 1:1 uebernommen, nur dieser Kopf-Kommentar angepasst.
 #
+# Abweichung von der Vorlage: permissions um "checks: read" erweitert -
+# lewagon/wait-on-check-action pollt die Checks-API und braucht sonst 403.
 # Keine Branch Protection vorhanden -> der Workflow wartet selbst auf grüne
 # CI-Checks (lewagon/wait-on-check-action), bevor er mergt.
 # pull_request_target wird nur mit striktem Actor-Gate auf dependabot[bot]
@@ -17,6 +19,7 @@ permissions:
   contents: write
   pull-requests: write
   actions: read
+  checks: read
 
 concurrency:
   group: dependabot-automerge-${{ github.event.pull_request.number }}
