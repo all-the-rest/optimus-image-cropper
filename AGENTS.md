@@ -61,18 +61,12 @@ Nach jeder Code-Änderung: build + test + lint der Library ausführen.
 
 ## Arbeitsweise des Haupt-Agenten (Orchestrierung)
 
-- Der Haupt-Agent **steuert nur**: planen, delegieren, Status pflegen — er implementiert
-  und verifiziert **nichts selbst**
-- Jede Umsetzungsarbeit (Code, Tests, Konfiguration) läuft in **Subagenten**;
-  unabhängige Aufgaben parallel starten
-- Nach **jedem** abgeschlossenen Schritt prüft ein **separater Review-Subagent**,
-  ob die Punkte wirklich erledigt sind und die Konventionen dieser Datei eingehalten
-  werden (Signals statt `@Input`/`@Output`/RxJS, zoneless, kein Tailwind/Material,
-  Prefixe, Tokens, optimus-ui-locale, Chrome Desktop + Mobile in E2E)
-- Ergebnis des Reviews: Checkboxen in `Agents.todo.md` abhaken oder so umschreiben,
-  dass der tatsächliche Stand sichtbar ist; veraltete Angaben in `AGENTS.md` korrigieren
-- **Push-Gate:** `git push` (und Repo-Anlage-Push) erst nach expliziter manueller
-  Freigabe durch den User
+- Der Build-/Verify-Flow steht im zentralen Skill `build-verify`
+  (`agents-skills/.agents/skills/build-verify/SKILL.md`), Always-on-Kernel
+  `.agents/rules/build-verify.md`: pullen, delegieren, Verify-Runde, committen,
+  amend, push + CI beobachten.
+- Der Haupt-Agent **steuert nur** (planen, delegieren, Status pflegen) und lässt
+  Implementierung und Verifikation von getrennten Subagenten machen.
 
 ## Arbeitsliste
 
