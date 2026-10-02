@@ -153,7 +153,6 @@ Quelle: `packages/mat-extended/cropper/src/`
 - [x] Nx release: `currentVersionResolver: "git-tag"` in `nx.json` gesetzt
 - [x] **Versions-Parität lokal ↔ CI:** Node-Major (lokal 26 → CI 26), pnpm via `packageManager`-Feld (`pnpm@11.23.0`), engines.node auf `>=26` gesetzt; CI nutzt `pnpm/action-setup@v4` ohne Version-Input (liest automatisch aus `packageManager`)
 - [x] Dateien erstellt, YAML-Syntax geprüft, initialer Commit `ci: add CI and release workflows`
-- [ ] **HINWEIS:** Tatsächliche CI/CD-Ausführung kann erst nach `git push` und GitHub-Setup verifiziert werden (Repo anlegen, Remote setzen, Secrets hinterlegen)
 
 ### Phase 9b — Trusted Publishing (npm OIDC, nach erstem manuellem Release)
 
@@ -163,10 +162,6 @@ Trusted Publishing konfigurierbar ist), danach CI-Publish ohne Token via OIDC.
 - [x] `docs/RELEASING.md` erstellt: Erstes Release lokal, dann Trusted Publisher auf
       npmjs.com konfigurieren, danach CI-Publish via Tag-Push; NX-Release-Versionierung
       (git-tag-resolver) dokumentiert; Fehlerbehebung
-- [ ] **Manueller Schritt (User):** Nach erstem Release auf npmjs.com für
-      `@all-the.rest/optimus-image-cropper` **Trusted Publisher** konfigurieren:
-      GitHub Actions, Repo `reisi007/optimus-image-cropper`, Workflow `release.yml`
-      (Anleitung in `docs/RELEASING.md`)
 - [x] `release.yml` auf OIDC umgestellt: `permissions: id-token: write` (war vorhanden),
       `NODE_AUTH_TOKEN`/`secrets.NPM_TOKEN` entfernt, `npm --version`-Echo-Step vor
       Publish eingefügt, `--provenance` bleibt für explizite Provenance-Deklaration
