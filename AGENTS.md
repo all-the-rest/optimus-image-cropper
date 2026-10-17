@@ -62,7 +62,7 @@ Nach jeder Code-Änderung: build + test + lint der Library ausführen.
 ## Arbeitsweise des Haupt-Agenten (Orchestrierung)
 
 - Der Build-/Verify-Flow steht im zentralen Skill `build-verify`
-  (`agents-skills/.agents/skills/build-verify/SKILL.md`), Always-on-Kernel
+  (`agents-skills/.agents/skills/build-verify/SKILL.md`), Kernregel
   `.agents/rules/build-verify.md`: pullen, delegieren, Verify-Runde, committen,
   amend, push + CI beobachten.
 - Der Haupt-Agent **steuert nur** (planen, delegieren, Status pflegen) und lässt
