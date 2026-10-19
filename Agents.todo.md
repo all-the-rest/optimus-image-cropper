@@ -23,6 +23,11 @@ Portierung des Image Croppers aus `/Users/florianreisinger/dev/angular-material-
 
 - [ ] **typescript 6 → 7:** blockiert durch Angular 22 / Nx 23 (Stand 2026-08-23). Weder Angular 22 noch Nx 23 unterstützen TypeScript 7 als Peer — Upgrade erst nach Angular 23 (und passendem Nx-Upgrade). Eintrag angelegt durch Dependency-Update-Subagent am 2026-08-23.
 
+## Offene Punkte
+
+- [ ] **Upstream-Sync `angular-material-extended`** (Stand 2026-08-01): Panning-Fix `3cbc903` (Crop-Rechteck beim Hintergrund-Verschieben mitbewegen) und kleinere Anpassungen aus `03ae35e` noch nicht in den Port übernommen — Details und Fundstellen in `docs/UPSTREAM.md`.
+- [ ] **UI-Review:** Screenshot-Skill (Playwright-Harness + Vision-Analyse) noch nicht angewendet. Referenz: `ocg-price-tracker/tests/screenshots` (`ui-screenshots.spec.ts` mit Section-Captures).
+
 ---
 
 ## Phase 1 — Scaffold Workspace ✅ Grundlage, blockiert alles andere (Review: PASS 2026-07-27)

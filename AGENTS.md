@@ -1,17 +1,18 @@
 # AGENTS.md — optimus-image-cropper
 
 Canvas-basierter Angular Image Cropper (`OicCropper`) auf Basis von **Optimus UI**
-(`@openng/optimus-ui`, PrimeNG-kompatibler Fork). Portiert aus
-`angular-material-extended` (`packages/mat-extended/cropper`).
+(`@openng/optimus-ui`, PrimeNG-kompatibler Fork).
+
+**Nur Regeln, keine Entscheidungen:** Diese Datei enthält ausschließlich Regeln — Anweisungen, die für jede Arbeit in diesem Repo gelten. Dauerhafte Entscheidungen, Begründungen, Messwerte und Historie gehören nicht hierher, sondern in `docs/`/`features/` bzw. die Projekt-Doku; offene Punkte nach `AGENTS.todo.md`; Erledigtes in die Git-Historie.
 
 ## Tech-Stack
 
 - Nx Monorepo + **pnpm** (Node >= 26, pnpm 11.23.0)
-- **Angular 22** (Vorgabe durch Optimus UI peerDependency `^22.0.0`); keine eigene Angular-Version vorziehen — Optimus UI 2.x gibt die Angular-Version vor
-- Library: `packages/optimus-image-cropper` → npm `@all-the.rest/optimus-image-cropper` (ng-packagr)
-- Demo: `apps/demo` (Aura-Theme aus `@openng/optimus-ui-themes`), E2E: `apps/demo-e2e` (Playwright)
+- **Angular 22**: Optimus UI gibt die Angular-Version vor — keine eigene Angular-Version vorziehen
+- Library: `packages/optimus-image-cropper` (ng-packagr) → npm `@all-the.rest/optimus-image-cropper`
+- Demo: `apps/demo` (Aura-Theme aus `@openng/optimus-ui-themes`); E2E: `apps/demo-e2e` (Playwright)
 - Tests: **Vitest** (`@analogjs/vitest-angular`), node-canvas (`canvas`) für Canvas-Tests
-- i18n-Strings (Aria/Buttons): **`@openng/optimus-ui-locale`**
+- i18n-Strings (Aria/Buttons) aus **`@openng/optimus-ui-locale`**
 
 ## Befehle
 
@@ -43,14 +44,8 @@ Nach jeder Code-Änderung: build + test + lint der Library ausführen.
 
 ## Upstream-Tracking
 
-- Dieses Projekt ist ein Port des Croppers aus `angular-material-extended`
-  (`packages/mat-extended/cropper`). Der **exakte Upstream-Stand** (Basis-Commit)
-  und alle seit der Portierung fehlenden Upstream-Änderungen stehen in
-  **`docs/UPSTREAM.md`**.
-- **Regel:** Bei jedem Übernehmen von Upstream-Änderungen `docs/UPSTREAM.md`
-  aktualisieren (Basis-Commit, Datum, abgehakte Änderungen). Ausstehende
-  Upstream-Fixes (Stand 2026-08-01): Panning-Fix `3cbc903` (Crop-Rechteck beim
-  Hintergrund-Verschieben mitbewegen) und kleinere Anpassungen aus `03ae35e`.
+- Port des Croppers aus `angular-material-extended` (`packages/mat-extended/cropper`); Basis-Commit und ausstehende Upstream-Änderungen stehen in **`docs/UPSTREAM.md`**.
+- **Regel:** Bei jedem Übernehmen von Upstream-Änderungen `docs/UPSTREAM.md` aktualisieren (Basis-Commit, Datum, abgehakte Änderungen).
 
 ## Release / CI
 
@@ -70,9 +65,4 @@ Nach jeder Code-Änderung: build + test + lint der Library ausführen.
 
 ## Arbeitsliste
 
-Der vollständige Implementierungsplan mit Status steht in **`Agents.todo.md`** —
-dort abhaken, was erledigt ist.
-
-## TODO (UI-Review)
-
-UI-Review-Screenshot-Skill noch nicht angewendet (Playwright-Harness + Vision-Analyse). Referenz: ocg-price-tracker/tests/screenshots (ui-screenshots.spec.ts mit Section-Captures).
+Offene Arbeit steht in **`Agents.todo.md`** — dort abhaken, was erledigt ist.
