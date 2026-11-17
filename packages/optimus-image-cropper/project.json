@@ -34,9 +34,8 @@
       }
     },
     "lint": {
-      "executor": "@nx/eslint:lint",
       "options": {
-        "maxWarnings": 0
+        "max-warnings": 0
       }
     }
   }
