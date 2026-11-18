@@ -17,7 +17,8 @@
       "value": 1
     },
     "unverified-commits": {
-      "value": 48
+      "value": 49,
+      "reason": "pre-existing drift: 49 history commits have no Verify: footer; the baseline (48) dates to ca03518 and predates this v0.8.0 migration. Reducing would require a forbidden history rewrite."
     }
   }
 }
